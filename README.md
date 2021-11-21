@@ -5,6 +5,10 @@ Code library for dbsic211, a tenth grade competitive programmer in Hong Kong.
 
 - Convex hull trick (fully dynamic version)
 
+**Resources**
+
+- The ultimate topic list for algorithms and data structures https://shahjalalshohag.github.io/topic-list/
+
 
 **About dbsic211**
 
