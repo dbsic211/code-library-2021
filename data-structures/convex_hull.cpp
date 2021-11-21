@@ -1,5 +1,5 @@
 struct line {
-    int m, c;
+    long long m, c;
     mutable function<const line*()> succ;
     bool operator<(const line& rhs) const {
         if (rhs.c != -(1ll<<62)) return m < rhs.m;
@@ -21,14 +21,14 @@ struct convex_hull : public multiset<line> {
             return (x->c - y->c)*(z->m - y->m) >= (y->c - z->c)*(y->m - x->m);
         }
     }
-    void insert_line(int m, int c) {
+    void insert_line(long long m, long long c) {
         auto y = insert({m, c});
         y->succ = [=] { return next(y) == end() ? 0 : &*next(y); };
         if (bad(y)) { erase(y); return; }
         while (next(y) != end() && bad(next(y))) erase(next(y));
         while (y != begin() && bad(prev(y))) erase(prev(y));
     }
-    int eval(int x) {
+    long long eval(long long x) {
         auto l = *lower_bound((line) { x, -(1ll<<62)});
         return l.m * x + l.c;
     }
