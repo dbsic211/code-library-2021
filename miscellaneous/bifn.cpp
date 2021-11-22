@@ -1,19 +1,20 @@
 //inv requires bm
 //nCr requires inv and precomp
 //MAXN and MOD must be defined
+//MOD must be defined as long long
 
-int bm(int b, int p) { // bigmod
+long long bm(long long b, long long p) { // bigmod
     if(p==0) return 1;
-    int r = bm(b, p/2);
+    long long r = bm(b, p/2);
     if(p&1) return (((r*r) % MOD) * b) % MOD;
     return (r*r) % MOD;
 }
-int inv(int b) { // modinv
+long long inv(long long b) { // modinv
     return bm(b, MOD-2);
 }
-int f[MAXN];
-int nCr(int n, int r) { // nCr main function, requires precomputation function
-    int ans = f[n]; ans *= inv(f[r]); ans %= MOD;
+long long f[MAXN];
+long long nCr(int n, int r) { // nCr main function, requires precomputation function
+    long long ans = f[n]; ans *= inv(f[r]); ans %= MOD;
     ans *= inv(f[n-r]); ans %= MOD; return ans;
 }
 
