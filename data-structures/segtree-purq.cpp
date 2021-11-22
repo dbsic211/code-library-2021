@@ -2,7 +2,7 @@
 
 //The default for update is assign (:=) operation. Can be modified to +=, ^=, ...
 //The default for query is sum (+=) operation. Can be modified to *=, ^=, ... or other operations
-struct segtree {
+struct segtree_purq {
     long long a[4*MAXN] = {};
     void upd_op(int idx, long long val) {
         a[idx] = val;            //Assign operation
