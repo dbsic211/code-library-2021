@@ -1,8 +1,8 @@
 set -e
-g++ code.cpp -o code
-g++ gen.cpp -o gen
-g++ brute.cpp -o brute
-g++ checker.cpp -o checker
+g++ code.cpp -std=c++17 -o code
+g++ gen.cpp -std=c++17 -o gen
+g++ brute.cpp -std=c++17 -o brute
+g++ checker.cpp -std=c++17 -o checker
 for((i = 1; ; ++i)); do
     ./gen $i > input_file
     ./code < input_file > myAnswer
