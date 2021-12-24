@@ -38,6 +38,6 @@ SDIC 2021/22 Senior Group: Silver
 
 NOIP 2021/22: Gold (2nd)
 
-HKOI 2021/22 Senior Group:
+HKOI 2021/22 Senior Group: Gold (4th)
 
 HK TFT 2021/22:
