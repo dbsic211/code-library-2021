@@ -7,9 +7,6 @@
 
 #pragma GCC optimize("Ofast")
 #include <bits/stdc++.h>
-#include <ext/pb_ds/assoc_container.hpp> 
-#include <ext/pb_ds/tree_policy.hpp> 
-#include <ext/pb_ds/detail/standard_policies.hpp>
 using namespace std;
 mt19937_64 rng((int)std::chrono::steady_clock::now().time_since_epoch().count());
 const int MAXN = 3e5 + 10;
