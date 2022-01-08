@@ -1,10 +1,3 @@
-//Regular Codeforces Template
-//Carries pbds, custom_hash, bigmod, modinv, factorials, nCr up to MAXN, 
-//dsu, random number generator, sum of digits of integers, binary addition and subtraction
-//With ios::sync_with_stdio(0); cin.tie(0); and #pragma GCC optimize("Ofast")
-//MAXN = 3e5 + 10, MOD = 1e9 + 7 by default
-//int is defined as long long here, use int32_t or signed for real int
-
 #pragma GCC optimize("Ofast")
 #include <bits/stdc++.h>
 using namespace std;
