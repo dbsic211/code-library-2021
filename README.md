@@ -8,8 +8,6 @@ Code library for dbsic211, a tenth grade competitive programmer in Hong Kong.
 https://codeforces.com/blog/entry/91363
 - Stress Testing
 https://ali-ibrahim137.github.io/competitive/programming/2020/08/23/Stress-Testing.html
-- Training guide (only people with access can read)
-https://docs.google.com/document/d/1eUTCbWAw6Za5CQvaBe6mCVCbq766LMLnJlUqiSMfIxo/edit
 
 
 **About dbsic211**
@@ -28,15 +26,15 @@ HK Teams: China NOI 2021
 
 HKOI 2020/21 Junior Group: Gold
 
-SDIC 2020/21 Senior Group: Gold (3rd)
+China SDIC 2020/21 Senior Group: Gold (3rd)
 
 HK TFT 2020/21: 6th
 
 China NOI 2021: Bronze
 
-SDIC 2021/22 Senior Group: Silver
+China SDIC 2021/22 Senior Group: Silver
 
-NOIP 2021/22: Gold (2nd)
+China NOIP 2021/22: Gold (2nd)
 
 HKOI 2021/22 Senior Group: Gold (4th)
 
