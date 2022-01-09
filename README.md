@@ -16,7 +16,7 @@ HKOI Online Judge:
 https://judge.hkoi.org/user/dbsic
 
 Codeforces: 
-https://codeforces.com/profile/c_oconut_owo
+https://codeforces.com/profile/dbsic211
 
 Alternate accounts: Currently hidden, will be released after I get a silver medal or above in IOI.
 
