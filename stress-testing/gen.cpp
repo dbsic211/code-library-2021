@@ -5,7 +5,7 @@ long long rnd(long long x, long long y) {
     long long u = uniform_int_distribution<long long>(x, y)(rng);
     return u;
 }
-int main() {
+int main(int32_t argc, char* argv[]) {
     //Write generator here
     
     
