@@ -1,3 +1,4 @@
+//https://codeforces.com/blog/entry/52094
 OST bit[MAXN]; // 2D bit in binary matrices
 void insert(int x, int y) {
   for(;x<MAXN;x+=x&-x) bit[x].insert({y, x});
