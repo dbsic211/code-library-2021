@@ -6,8 +6,8 @@ bool onSegment(Point p, Point q, Point r);
 int orientation(Point p, Point q, Point r);
 bool doIntersect(Point p1, Point q1, Point p2, Point q2);
 DoublePoint find_intersection(Point p1, Point q1, Point p2, Point q2);
+DoublePoint find_midpoint(Point p, Point q);
 int SquareDistance(Point p, Point q);
-
 
 bool onSegment(Point p, Point q, Point r) {
     if (q.x <= max(p.x, r.x) && q.x >= min(p.x, r.x) &&
@@ -33,6 +33,9 @@ bool doIntersect(Point p1, Point q1, Point p2, Point q2) {
     if (o3 == 0 && onSegment(p2, p1, q2)) return true;
     if (o4 == 0 && onSegment(p2, q1, q2)) return true;
     return false;
+}
+DoublePoint find_midpoint(Point p, Point q) {
+  return {(p.x + q.x) * 0.5, (p.y + q.y) * 0.5};
 }
 DoublePoint find_intersection(Point p1, Point q1, Point p2, Point q2) {
     if(!doIntersect(p1, q1, p2, q2)) return {-101, -101};
