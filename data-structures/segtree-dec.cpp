@@ -1,3 +1,8 @@
+//https://csacademy.com/contest/round-41/task/candles/
+//https://oj.uz/problem/view/IOI07_sails
+//Basically, a segtree that solves a very specific class of problems
+//Practice for parallel binary search and lazy propagation
+
 struct segtree_dec {
   // #define int long long required!!!
   // Maintain a monotonically decreasing(!!!) array, initially all zeros
