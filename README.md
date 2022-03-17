@@ -17,25 +17,4 @@ https://judge.hkoi.org/user/dbsic
 
 Codeforces: 
 https://codeforces.com/profile/dbsic211
-
-Alternate accounts: Currently hidden, will be released after I get a silver medal or above in IOI.
-
-HK Teams: China NOI 2021
-
-**OI contest results**
-
-HKOI 2020/21 Junior Group: Gold
-
-China SDIC 2020/21 Senior Group: Gold (3rd)
-
-HK TFT 2020/21: 6th
-
-China NOI 2021: Bronze
-
-China SDIC 2021/22 Senior Group: Silver
-
-China NOIP 2021/22: Gold (2nd)
-
-HKOI 2021/22 Senior Group: Gold (4th)
-
-HK TFT 2021/22:
+https://codeforces.com/profile/challenger2022
