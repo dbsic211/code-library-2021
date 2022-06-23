@@ -1,59 +1,87 @@
-#include <bits/stdc++.h>
-#define int long long
-using namespace std;
-const int MAXN = 5e3 + 10;
-vector<pair<int, pair<int,int> > > adj[MAXN]; //cost, flow
-unordered_map<int, int> cor[MAXN];
-void addedge(int u, int v, int w ,int c){
-    cor[u][adj[u].size()] = adj[v].size();
-    cor[v][adj[v].size()] = adj[u].size();
-    adj[u].push_back({v, {w, c}});
-    adj[v].push_back({u, {-w, 0}});
-}
-signed main() {
-    int n, m, s, t;
-    cin >> n >> m >> s >> t;
-    for(int i=0; i<m; i++){
-        int u, v, w, c; cin >> u >> v >> c >> w;
-        addedge(u, v, w, c);
-    }
-    int mincost = 0, maxflow = 0;
-    while(1){
-        queue<int> q;
-        int dist[n+1];
-        for(int i=1; i<=n; i++) dist[i] = INT_MAX;
-        dist[s] = 0;
-        bool in[n+1];
-        for(int i=1; i<=n; i++) in[i] = 0;
-        q.push(s);
-        in[s] = 1;
-        pair<int, int> pre[n+1];
-        while(q.size()){
-            int f = q.front(); q.pop();
-            in[f] = 0;
-            for(int j=0; j<adj[f].size(); j++){
-                if(adj[f][j].second.second > 0 && dist[adj[f][j].first] > dist[f] + adj[f][j].second.first){
-                    dist[adj[f][j].first] = dist[f] + adj[f][j].second.first;
-                    if(!in[adj[f][j].first]) q.push(adj[f][j].first);
-                    pre[adj[f][j].first] = {f, j};
-                }
+struct flow_graph {
+  struct edge {
+    int to, cost, flow, revid; // reverse edge id in adjacency list
+  };
+  vector<vector<edge> > adj, adj2;
+  bool computed = 0;
+  int mc, mf;
+  int n, s, t;
+  public:
+  void init(int n_, int s_, int t_) {
+    n = n_;
+    s = s_;
+    t = t_;
+    adj.resize(n + 10);
+  }
+  void addedge(int u, int v, int cost, int flow) {
+    int au = adj[u].size();
+    int av = adj[v].size();
+    adj[u].push_back({v, cost, flow, av});
+    adj[v].push_back({u, -cost, 0, au});
+  }
+  void eval() {
+    computed = 1;
+    mc = mf = 0;
+    int h[n+1];
+    for(int i=1; i<=n; i++) h[i] = 0;
+    while(1) {
+      int dist[n+1];
+      pair<int, int> pre[n+1];
+      bool vis[n+1];
+      priority_queue<pair<int, int>, vector<pair<int, int> > ,greater<pair<int, int> > > pq;
+      for(int i=1; i<=n; i++) {
+        dist[i] = 1e15;
+        vis[i] = 0;
+      }
+      dist[s] = 0;
+      pq.push({0, s});
+      while(pq.size()) {
+        pair<int, int> t = pq.top(); pq.pop();
+        if(!vis[t.second]) {
+          vis[t.second] = 1;
+          int idx = 0;
+          for(edge x: adj[t.second]) {
+            if(!vis[x.to] && x.flow > 0 && dist[x.to] > dist[t.second] + x.cost + h[t.second] - h[x.to]) {
+              dist[x.to] = dist[t.second] + x.cost + h[t.second] - h[x.to];
+              pre[x.to] = {t.second, idx};
+              pq.push({dist[x.to], x.to});
             }
+            idx++;
+          }
         }
-        if(dist[t] == INT_MAX) break;
-        int e = INT_MAX;
-        int cur = t;
-        while(cur != s){
-            e = min(e, adj[pre[cur].first][pre[cur].second].second.second);
-            cur = pre[cur].first;
-        }
-        cur = t;
-        while(cur != s){
-            adj[pre[cur].first][pre[cur].second].second.second -= e;
-            adj[cur][cor[pre[cur].first][pre[cur].second]].second.second += e;
-            cur = pre[cur].first;
-        }
-        mincost += dist[t] * e;
-        maxflow += e;
+      }
+      if(dist[t] == 1e15) break;
+
+      int e = 1e15; // amount of flow
+      int cur = t;
+      while(cur != s) {
+        int pv = pre[cur].first;
+        int bc = pre[cur].second; // pv -> cur
+        int lo = adj[pv][bc].revid; // cur -> pv
+        e = min(e, adj[pv][bc].flow);
+        cur = pv;
+      }
+      cur = t;
+      while(cur != s) {
+        int pv = pre[cur].first;
+        int bc = pre[cur].second; // pv -> cur
+        int lo = adj[pv][bc].revid; // cur -> pv
+        adj[pv][bc].flow -= e;
+        adj[cur][lo].flow += e;
+        cur = pv;
+      }
+      mc += (dist[t] - (h[s] - h[t])) * e;
+      mf += e;
+     // cout << e << " " << (dist[t] - (h[s] - h[t])) << "\n";
+      for(int i=1; i<=n; i++) h[i] += dist[i];
     }
-    cout << maxflow << ' ' << mincost << endl;
-}
+  }
+  int mincost() {
+    if(!computed) eval();
+    return mc;
+  }
+  int maxflow() {
+    if(!computed) eval();
+    return mf;
+  }
+};
