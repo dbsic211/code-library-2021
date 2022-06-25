@@ -38,7 +38,7 @@ DoublePoint find_midpoint(Point p, Point q) {
   return {(p.x + q.x) * 0.5, (p.y + q.y) * 0.5};
 }
 DoublePoint find_intersection(Point p1, Point q1, Point p2, Point q2) {
-    if(!doIntersect(p1, q1, p2, q2)) return {-101, -101};
+    if(!doIntersect(p1, q1, p2, q2)) return {-1000000000, -1000000000};
     if(p1.x == q1.x) {
         double m = (q2.y - p2.y) * 1.0 / (q2.x - p2.x);
         double c = q2.y - q2.x * m;
