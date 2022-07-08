@@ -212,23 +212,23 @@ struct segtree_basic {
   void resize(int k) {
     st.resize(4*k + 10);
     stok = k;
-    bu(1, k, 0);
+    bu(0, k, 0);
   }
-  void range_assign(int l, int r, int v) { u1(l, r, 1, stok, 0, v); }
+  void range_assign(int l, int r, int v) { u1(l, r, 0, stok, 0, v); }
  
-  void range_add(int l, int r, int v) { u2(l, r, 1, stok, 0, v); }
+  void range_add(int l, int r, int v) { u2(l, r, 0, stok, 0, v); }
  
-  int query_min(int l, int r) { return qu1(l, r, 1, stok, 0); }
+  int query_min(int l, int r) { return qu1(l, r, 0, stok, 0); }
  
-  int query_max(int l, int r) { return qu2(l, r, 1, stok, 0); }
+  int query_max(int l, int r) { return qu2(l, r, 0, stok, 0); }
  
-  int query_sum(int l, int r) { return qu3(l, r, 1, stok, 0); }
+  int query_sum(int l, int r) { return qu3(l, r, 0, stok, 0); }
  
-  int query_firstAtLeast(int l, int r, int v) { return qu4(l, r, 1, stok, 0, v); }
+  int query_firstAtLeast(int l, int r, int v) { return qu4(l, r, 0, stok, 0, v); }
  
-  int query_firstAtMost(int l, int r, int v) { return qu5(l, r, 1, stok, 0, v); }
+  int query_firstAtMost(int l, int r, int v) { return qu5(l, r, 0, stok, 0, v); }
  
-  int query_lastAtLeast(int l, int r, int v) { return qu6(l, r, 1, stok, 0, v); } 
+  int query_lastAtLeast(int l, int r, int v) { return qu6(l, r, 0, stok, 0, v); } 
  
-  int query_lastAtMost(int l, int r, int v) { return qu7(l, r, 1, stok, 0, v); }
+  int query_lastAtMost(int l, int r, int v) { return qu7(l, r, 0, stok, 0, v); }
 };
