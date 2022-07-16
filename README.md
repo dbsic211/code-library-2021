@@ -1,5 +1,5 @@
 # code-library
-Code library for dbsic211, a tenth grade competitive programmer in Hong Kong.
+Code library for dbsic211, an eleventh grade competitive programmer in Hong Kong.
 
 **Resources**
 
